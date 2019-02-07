@@ -1,0 +1,56 @@
+##OpenGL GLIB
+Perspective 70
+LookAt  0 0 8  0 0 0  0 1 0
+
+Vertex   texture.vert
+Fragment texture.frag
+Program  Texture  TexUnit 6
+
+Texture2D  6  posx.bmp
+QuadYZ 10. 10. 10 10
+Texture2D  6  negx.bmp
+QuadYZ -10. 10. 10 10
+Texture2D  6  posy.bmp
+QuadXZ 10. 10. 10 10
+Texture2D  6  negy.bmp
+QuadXZ -10. 10. 10 10
+Texture2D  6  posz.bmp
+QuadXY 10. 10. 10 10
+Texture2D  6  negz.bmp
+QuadXY -10. 10. 10 10
+
+CubeMap 6 posx.bmp negx.bmp  posy.bmp negy.bmp   posz.bmp negz.bmp
+CubeMap 7 negx.bmp posx.bmp  negy.bmp posy.bmp   posz.bmp negz.bmp
+
+#Texture2D 5 background2.bmp
+#QuadYZ 10. 10. 1920. 1200.
+
+Vertex   panx_final.vert
+Fragment panx_final.frag
+Program  Final                                           \
+		uReflectUnit 6  uRefractUnit 7                   \
+		uEta  <.1 1.1 5.>   uMix <0. 0. 1.>              \
+		uRefraction <false>                              \
+		uAd <.05 .3 .8>  uBd <.05 .3 .8>                 \
+		uNoiseAmp <0. 0. 10.>  uNoiseFreq <0. 1. 10.>    \
+		uAlpha <0. 1. 1.>                                \
+		uTol <0. 0. 1.>                                  \
+		uLightX <-20. 5. 20.>                            \
+		uLightY <-20. 10. 20.>                  		 \
+		uLightZ <-20. -20. 20.>                  		 \
+		uRippleColor {1. 1. 0. 1.}                   	 \
+		uWaterColor {0.7 0.8 0.1 1.}					 \
+		uR1 <-100. 40. 100.>  							 \
+		uR2 <-100. 40. 100.>
+
+		
+QuadXY -1.8 1.8 10 10
+QuadYZ 1.8 1.8 10 10
+QuadYZ -1.8 1.8 10 10
+QuadXZ 1.8 1.8 10 10
+QuadXZ -1.8 1.8 10 10
+
+
+QuadXZ  -8  5. 1000 1000
+Scale 0.8 0.8 0.8
+Obj vase4.obj
